@@ -1,0 +1,442 @@
+{
+  "repoUrl": "https://github.com/factory-gtm/riya-sdlc-demo",
+  "report": {
+    "large_file_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No git hooks, CI size check, LFS, or ESLint max-lines rule."
+    },
+    "tech_debt_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No TODO/FIXME scanner, linter fixme rule, or code quality platform."
+    },
+    "build_cmd_doc": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README and AGENTS.md document `pnpm build`."
+    },
+    "deps_pinned": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "pnpm-lock.yaml is committed."
+    },
+    "vcs_cli_tools": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "gh is installed and authenticated as factory-riya-bhivare."
+    },
+    "automated_pr_review": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Last 10 PRs: the only review is by a human (factory-riya-bhivare). No bot-generated review comments."
+    },
+    "agentic_development": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Recent commits carry Co-authored-by: factory-droid[bot] trailers."
+    },
+    "fast_ci_feedback": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Merged PRs #1 and #9: the CI check took about 20s and 17s."
+    },
+    "build_performance_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Only setup-node pnpm dependency caching. No build cache, metrics, or timing analysis."
+    },
+    "deployment_frequency": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No releases or deploy workflows in GitHub. Deploys happen outside the repo (Conjure via Factory automation), and the repo is one day old."
+    },
+    "single_command_setup": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README: `pnpm install` then `pnpm dev` (http://localhost:5173)."
+    },
+    "feature_flag_infrastructure": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No feature flag system."
+    },
+    "release_notes_automation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No changelog or release-notes tooling."
+    },
+    "progressive_rollout": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: not an infra repo (static site)."
+    },
+    "rollback_automation": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: not an infra repo (static site)."
+    },
+    "monorepo_tooling": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: single-application repo."
+    },
+    "version_drift_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: one package."
+    },
+    "release_automation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No CD pipeline in the repo. AGENTS.md documents a manual `pnpm deploy:conjure`. The auto-deploy is an external Factory automation, not repo config."
+    },
+    "dead_feature_flag_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: feature_flag_infrastructure fails."
+    },
+    "agents_md": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "AGENTS.md (3.4 KB) covers layout, commands, conventions, and deploy."
+    },
+    "readme": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md has a description, setup, and commands."
+    },
+    "automated_doc_generation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No doc generation tooling or workflow."
+    },
+    "skills": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .factory/skills, .skills, or .claude/skills directory."
+    },
+    "documentation_freshness": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md and AGENTS.md changed within 180 days (1df34e5)."
+    },
+    "service_flow_documented": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README documents the external Open-Meteo API dependency and the verdict data flow."
+    },
+    "agents_md_validation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "CI runs the same commands but nothing explicitly validates AGENTS.md."
+    },
+    "devcontainer": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .devcontainer/devcontainer.json."
+    },
+    "env_template": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "No env vars needed. README and AGENTS.md state no backend and no API key."
+    },
+    "local_services_setup": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no local service dependencies (public Open-Meteo API only)."
+    },
+    "devcontainer_runnable": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no devcontainer, and no devcontainer CLI."
+    },
+    "runbooks_documented": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No runbook or incident-response pointers. Only the deploy steps in AGENTS.md."
+    },
+    "branch_protection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Admin access. Rulesets return [] and the branches API shows main protected:false."
+    },
+    "secret_scanning": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the secret-scanning API returns 403 for this integration token, and no gitleaks/trufflehog/pre-commit scanning was found."
+    },
+    "codeowners": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No CODEOWNERS file."
+    },
+    "automated_security_review": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the code-scanning API returns 403 for this token, and no other security report tooling was found."
+    },
+    "dependency_update_automation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Dependabot or Renovate config."
+    },
+    "gitignore_comprehensive": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".gitignore covers .env, node_modules, dist, .DS_Store, but not IDE configs (.idea, .vscode)."
+    },
+    "privacy_compliance": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: a static site with no end-user data collection."
+    },
+    "secrets_management": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".env is gitignored, but there is no .env.example and no secrets manager pattern. Ambiguous, so it fails."
+    },
+    "min_release_age": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No minimum release age policy."
+    },
+    "issue_templates": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .github/ISSUE_TEMPLATE."
+    },
+    "issue_labeling_system": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Type labels exist (bug, enhancement), but there are no priority or area labels."
+    },
+    "backlog_health": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "7 open issues, all with descriptive titles and 2 labels each. None older than 365 days."
+    },
+    "pr_templates": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No pull_request_template.md."
+    },
+    "lint_config": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "ESLint flat config with typescript-eslint."
+    },
+    "type_check": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "tsconfig.json with strict: true, and `pnpm typecheck` runs tsc."
+    },
+    "formatter": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Prettier or other formatter config."
+    },
+    "pre_commit_hooks": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No husky, lint-staged, or pre-commit hooks."
+    },
+    "strict_typing": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "tsconfig strict: true."
+    },
+    "naming_consistency": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "AGENTS.md documents the naming conventions (camelCase, PascalCase, UPPER_CASE, kebab-case files)."
+    },
+    "cyclomatic_complexity": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "ESLint rule complexity: ['error', 15]."
+    },
+    "dead_code_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "tsconfig noUnusedLocals/noUnusedParameters, plus typescript-eslint no-unused-vars, flag unused code."
+    },
+    "duplicate_code_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No jscpd or similar."
+    },
+    "code_modularization": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: a small single-page project where module boundaries are not meaningful."
+    },
+    "n_plus_one_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no database or ORM."
+    },
+    "heavy_dependency_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "A Vite-bundled app with no bundle analyzer or size-limit."
+    },
+    "unused_dependencies_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No depcheck or knip."
+    },
+    "unit_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "src/layover.test.ts and src/weather.test.ts (Vitest)."
+    },
+    "integration_tests_exist": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Playwright, Cypress, or integration test directory."
+    },
+    "unit_tests_runnable": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "`npx --no-install vitest list` exited 0 and listed 25 tests without running them."
+    },
+    "test_performance_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No test timing reporting or analytics."
+    },
+    "flaky_test_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No retry config or flaky tracking. No duplicate check names in PR rollups."
+    },
+    "test_coverage_thresholds": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No coverage thresholds."
+    },
+    "test_naming_conventions": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "AGENTS.md documents that `src/*.test.ts` tests sit next to the code they test."
+    },
+    "test_isolation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Vitest runs files in parallel by default. No --runInBand or single-thread override."
+    },
+    "interactive_qa_exists": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README: pnpm install, pnpm dev at localhost:5173, pick an airport and times, read the card. No auth or services."
+    },
+    "interactive_qa_runnable": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Confirmed this session: the dev server ran and ORD with 5h was exercised with screenshots taken."
+    },
+    "api_schema_docs": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: a static site with no HTTP API."
+    },
+    "database_schema": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no database."
+    },
+    "structured_logging": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No logging library or logger module."
+    },
+    "distributed_tracing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No trace or request ID propagation."
+    },
+    "metrics_collection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No metrics or telemetry."
+    },
+    "code_quality_metrics": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the code-scanning API returns 403 for this token, and there is no coverage config or quality bot."
+    },
+    "error_tracking_contextualized": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Sentry, Bugsnag, or Rollbar."
+    },
+    "alerting_configured": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No alerting."
+    },
+    "deployment_observability": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No dashboards or deploy notifications referenced."
+    },
+    "health_checks": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "A deployed static site with no health check mechanism."
+    },
+    "circuit_breakers": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "The Open-Meteo call has a failure fallback message but no retry, backoff, or breaker."
+    },
+    "profiling_instrumentation": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: profiling is not meaningful for this small static site."
+    },
+    "dast_scanning": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No DAST in CI."
+    },
+    "pii_handling": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no personal data processed."
+    },
+    "log_scrubbing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No redaction or scrubbing mechanism."
+    },
+    "product_analytics_instrumentation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No analytics instrumentation."
+    },
+    "error_to_insight_pipeline": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No error-to-issue integration."
+    }
+  },
+  "apps": {
+    ".": {
+      "description": "Layover Explorer: a one-page Vite + TypeScript static site with a layover verdict and Open-Meteo weather"
+    }
+  },
+  "commitHash": "94fed7cc6316257d005a7c2428d3f2fa7e054405",
+  "branch": "layover-explorer/factory-brand",
+  "hasLocalChanges": false,
+  "hasNonRemoteCommits": false,
+  "modelUsed": {
+    "id": "claude-opus-5.5",
+    "reasoningEffort": "low"
+  },
+  "droidVersion": "1.8.0",
+  "reportId": "248f43e6-578f-44c6-ad07-14841b71a57c",
+  "createdAt": 1794416357875,
+  "sourceSessionId": "9ccd4300-23df-4768-b855-d44d871f7f54"
+}
