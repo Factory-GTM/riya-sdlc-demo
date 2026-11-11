@@ -25,6 +25,22 @@ describe('usableTime', () => {
   it('can go negative on short layovers', () => {
     expect(usableTime(ord, 60, false).usable).toBe(-80);
   });
+
+  it('gives SIN a Yes exactly at the international 120-minute boundary', () => {
+    const sin = airports.find((airport) => airport.code === 'SIN')!;
+    // International usable = 325 - 20 - 2 x 40 - 60 - 45 = 120.
+    const usable = usableTime(sin, 325, true).usable;
+    expect(usable).toBe(120);
+    expect(verdictFor(usable)).toBe('yes');
+  });
+
+  it('gives YYZ a Tight exactly at the international 45-minute boundary', () => {
+    const yyz = airports.find((airport) => airport.code === 'YYZ')!;
+    // International usable = 325 - 20 - 2 x 40 - 90 - 90 = 45.
+    const usable = usableTime(yyz, 325, true).usable;
+    expect(usable).toBe(45);
+    expect(verdictFor(usable)).toBe('tight');
+  });
 });
 
 describe('verdictFor', () => {
@@ -100,18 +116,55 @@ describe('formatMinutes', () => {
 });
 
 describe('airport data', () => {
-  it('has the expected airports with complete fields', () => {
+  const expectMinutes = (minutes: number, minimum: number, maximum: number) => {
+    expect(Number.isInteger(minutes)).toBe(true);
+    expect(minutes).toBeGreaterThanOrEqual(minimum);
+    expect(minutes).toBeLessThanOrEqual(maximum);
+  };
+
+  it('has the expected airports in unique code order for the dropdown', () => {
+    const codes = airports.map((airport) => airport.code);
+    expect(new Set(codes).size).toBe(codes.length);
+    expect(codes).toEqual([...codes].sort());
     expect(airports.map((airport) => airport.code)).toEqual(
-      expect.arrayContaining(['ATL', 'ORD', 'DFW', 'DEN', 'JFK', 'LAX', 'SFO', 'SEA', 'DTW', 'BOS', 'MIA', 'LHR']),
+      expect.arrayContaining(['ATL', 'ORD', 'DFW', 'DEN', 'JFK', 'LAX', 'SFO', 'SEA', 'DTW', 'BOS', 'MIA', 'LHR', 'SIN', 'YYZ']),
     );
-    for (const airport of airports) {
-      expect(airport.cityIdeas.length).toBeGreaterThanOrEqual(3);
-      expect(airport.airportIdeas.length).toBeGreaterThanOrEqual(1);
-      expect(() => new Intl.DateTimeFormat('en-US', { timeZone: airport.timezone })).not.toThrow();
-      for (const idea of [...airport.cityIdeas, ...airport.airportIdeas]) {
-        expect(['indoor', 'outdoor']).toContain(idea.setting);
-        expect(idea.minutes).toBeGreaterThan(0);
-      }
+  });
+
+  it.each(airports)('$code has complete fields and valid coordinates and time zone', (airport) => {
+    expect(airport.code).toMatch(/^[A-Z]{3}$/);
+    for (const value of [airport.name, airport.city, airport.timezone]) {
+      expect(typeof value).toBe('string');
+      expect(value.trim().length).toBeGreaterThan(0);
+    }
+    expect(Number.isFinite(airport.latitude)).toBe(true);
+    expect(airport.latitude).toBeGreaterThanOrEqual(-90);
+    expect(airport.latitude).toBeLessThanOrEqual(90);
+    expect(Number.isFinite(airport.longitude)).toBe(true);
+    expect(airport.longitude).toBeGreaterThanOrEqual(-180);
+    expect(airport.longitude).toBeLessThanOrEqual(180);
+    expect(() => new Intl.DateTimeFormat('en-US', { timeZone: airport.timezone })).not.toThrow();
+  });
+
+  it.each(airports)('$code has bounded whole-minute estimates', (airport) => {
+    // Allow short airport links through two-hour transfers/queues; customs up to three hours.
+    expectMinutes(airport.transitToCityMinutes, 5, 120);
+    expectMinutes(airport.securityMinutes, 5, 120);
+    expectMinutes(airport.customsMinutes, 1, 180);
+  });
+
+  it.each(airports)('$code has enough distinct, complete ideas', (airport) => {
+    expect(airport.cityIdeas.length).toBeGreaterThanOrEqual(3);
+    expect(airport.airportIdeas.length).toBeGreaterThanOrEqual(1);
+    const ideas = [...airport.cityIdeas, ...airport.airportIdeas];
+    const names = ideas.map((idea) => idea.name.trim().toLowerCase());
+    expect(new Set(names).size).toBe(ideas.length);
+    for (const idea of ideas) {
+      expect(typeof idea.name).toBe('string');
+      expect(idea.name.trim().length).toBeGreaterThan(0);
+      expect(['indoor', 'outdoor']).toContain(idea.setting);
+      // Five minutes for a quick look, eight hours for a full-day public attraction.
+      expectMinutes(idea.minutes, 5, 480);
     }
   });
 });
