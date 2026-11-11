@@ -1,0 +1,602 @@
+[
+  {
+    "code": "ATL",
+    "name": "Hartsfield-Jackson Atlanta International",
+    "city": "Atlanta",
+    "latitude": 33.6407,
+    "longitude": -84.4277,
+    "timezone": "America/New_York",
+    "transitToCityMinutes": 25,
+    "securityMinutes": 30,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Centennial Olympic Park",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Georgia Aquarium",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "Atlanta BeltLine Eastside Trail",
+        "minutes": 90,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Martin Luther King Jr. National Historical Park",
+        "minutes": 90,
+        "setting": "outdoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Walk the art exhibits in the Transportation Mall",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Sit-down meal in Concourse E",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Watch planes from a concourse window",
+        "minutes": 20,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "ORD",
+    "name": "Chicago O'Hare International",
+    "city": "Chicago",
+    "latitude": 41.9742,
+    "longitude": -87.9073,
+    "timezone": "America/Chicago",
+    "transitToCityMinutes": 45,
+    "securityMinutes": 30,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Millennium Park and Cloud Gate",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Chicago Riverwalk",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Art Institute of Chicago",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "Chicago Cultural Center",
+        "minutes": 45,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Dinosaur skeleton in Terminal 1",
+        "minutes": 15,
+        "setting": "indoor"
+      },
+      {
+        "name": "Light tunnel between Concourses B and C",
+        "minutes": 15,
+        "setting": "indoor"
+      },
+      {
+        "name": "Yoga room in Terminal 3",
+        "minutes": 30,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "DFW",
+    "name": "Dallas Fort Worth International",
+    "city": "Dallas",
+    "latitude": 32.8998,
+    "longitude": -97.0403,
+    "timezone": "America/Chicago",
+    "transitToCityMinutes": 50,
+    "securityMinutes": 30,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Klyde Warren Park",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "The Sixth Floor Museum at Dealey Plaza",
+        "minutes": 90,
+        "setting": "indoor"
+      },
+      {
+        "name": "Dallas Arts District walk",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Dallas Museum of Art",
+        "minutes": 90,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Ride the Skylink train around all terminals",
+        "minutes": 20,
+        "setting": "indoor"
+      },
+      {
+        "name": "Airport public art walk",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Yoga studio in Terminal D",
+        "minutes": 30,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "DEN",
+    "name": "Denver International",
+    "city": "Denver",
+    "latitude": 39.8561,
+    "longitude": -104.6737,
+    "timezone": "America/Denver",
+    "transitToCityMinutes": 40,
+    "securityMinutes": 35,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Union Station and LoDo",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Larimer Square",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Denver Art Museum",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "16th Street Mall",
+        "minutes": 45,
+        "setting": "outdoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Look up at the tented terminal roof and public art",
+        "minutes": 20,
+        "setting": "indoor"
+      },
+      {
+        "name": "Outdoor plaza between the terminal and the train station",
+        "minutes": 20,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Sit-down meal in Concourse B",
+        "minutes": 45,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "JFK",
+    "name": "John F. Kennedy International",
+    "city": "New York",
+    "latitude": 40.6413,
+    "longitude": -73.7781,
+    "timezone": "America/New_York",
+    "transitToCityMinutes": 60,
+    "securityMinutes": 40,
+    "customsMinutes": 60,
+    "cityIdeas": [
+      {
+        "name": "Central Park",
+        "minutes": 90,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Times Square",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "The Metropolitan Museum of Art",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "Grand Central Terminal",
+        "minutes": 30,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Saarinen's 1962 TWA Flight Center building",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Terminal 4 art exhibits",
+        "minutes": 20,
+        "setting": "indoor"
+      },
+      {
+        "name": "Watch planes from the Terminal 4 windows",
+        "minutes": 20,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "LAX",
+    "name": "Los Angeles International",
+    "city": "Los Angeles",
+    "latitude": 33.9416,
+    "longitude": -118.4085,
+    "timezone": "America/Los_Angeles",
+    "transitToCityMinutes": 45,
+    "securityMinutes": 40,
+    "customsMinutes": 60,
+    "cityIdeas": [
+      {
+        "name": "Venice Beach Boardwalk",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Santa Monica Pier",
+        "minutes": 90,
+        "setting": "outdoor"
+      },
+      {
+        "name": "The Getty Center",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "Manhattan Beach Pier",
+        "minutes": 45,
+        "setting": "outdoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Look at the 1961 Theme Building",
+        "minutes": 15,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Art and shops in the Tom Bradley International Terminal",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Sit-down meal in Terminal 6",
+        "minutes": 45,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "SFO",
+    "name": "San Francisco International",
+    "city": "San Francisco",
+    "latitude": 37.6213,
+    "longitude": -122.379,
+    "timezone": "America/Los_Angeles",
+    "transitToCityMinutes": 35,
+    "securityMinutes": 30,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Ferry Building",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Embarcadero waterfront walk",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Chinatown",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "San Francisco Museum of Modern Art",
+        "minutes": 120,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "SFO Museum exhibits in the terminals",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Aviation Museum and Library in the International Terminal",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Yoga room in Terminal 2",
+        "minutes": 20,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "SEA",
+    "name": "Seattle-Tacoma International",
+    "city": "Seattle",
+    "latitude": 47.4502,
+    "longitude": -122.3088,
+    "timezone": "America/Los_Angeles",
+    "transitToCityMinutes": 40,
+    "securityMinutes": 30,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Pike Place Market",
+        "minutes": 60,
+        "setting": "indoor"
+      },
+      {
+        "name": "Seattle waterfront",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Olympic Sculpture Park",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Seattle Central Library",
+        "minutes": 30,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Look for Mount Rainier from the Central Terminal windows",
+        "minutes": 15,
+        "setting": "indoor"
+      },
+      {
+        "name": "Airport art collection walk",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Sit-down meal in the Central Terminal",
+        "minutes": 45,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "DTW",
+    "name": "Detroit Metropolitan Wayne County",
+    "city": "Detroit",
+    "latitude": 42.2162,
+    "longitude": -83.3554,
+    "timezone": "America/Detroit",
+    "transitToCityMinutes": 35,
+    "securityMinutes": 25,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Detroit Riverwalk",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Campus Martius Park",
+        "minutes": 30,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Detroit Institute of Arts",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "Guardian Building lobby",
+        "minutes": 20,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Light tunnel in the McNamara Terminal",
+        "minutes": 15,
+        "setting": "indoor"
+      },
+      {
+        "name": "Fountain show in the McNamara Terminal",
+        "minutes": 15,
+        "setting": "indoor"
+      },
+      {
+        "name": "Ride the ExpressTram end to end",
+        "minutes": 15,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "BOS",
+    "name": "Boston Logan International",
+    "city": "Boston",
+    "latitude": 42.3656,
+    "longitude": -71.0096,
+    "timezone": "America/New_York",
+    "transitToCityMinutes": 25,
+    "securityMinutes": 30,
+    "customsMinutes": 45,
+    "cityIdeas": [
+      {
+        "name": "Boston Common and Public Garden",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Freedom Trail",
+        "minutes": 90,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Faneuil Hall and Quincy Market",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Boston Public Library",
+        "minutes": 30,
+        "setting": "indoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Harbor and skyline views from the terminal windows",
+        "minutes": 15,
+        "setting": "indoor"
+      },
+      {
+        "name": "Sit-down meal in Terminal C",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Airport art exhibits",
+        "minutes": 20,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "MIA",
+    "name": "Miami International",
+    "city": "Miami",
+    "latitude": 25.7959,
+    "longitude": -80.287,
+    "timezone": "America/New_York",
+    "transitToCityMinutes": 30,
+    "securityMinutes": 35,
+    "customsMinutes": 60,
+    "cityIdeas": [
+      {
+        "name": "Little Havana and Calle Ocho",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Bayfront Park",
+        "minutes": 45,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Pérez Art Museum Miami",
+        "minutes": 90,
+        "setting": "indoor"
+      },
+      {
+        "name": "Wynwood Walls street art",
+        "minutes": 60,
+        "setting": "outdoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "MIA Galleries art exhibits",
+        "minutes": 30,
+        "setting": "indoor"
+      },
+      {
+        "name": "Sit-down meal in Concourse D",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Watch planes from a Concourse D window",
+        "minutes": 20,
+        "setting": "indoor"
+      }
+    ]
+  },
+  {
+    "code": "LHR",
+    "name": "London Heathrow",
+    "city": "London",
+    "latitude": 51.47,
+    "longitude": -0.4543,
+    "timezone": "Europe/London",
+    "transitToCityMinutes": 35,
+    "securityMinutes": 40,
+    "customsMinutes": 60,
+    "cityIdeas": [
+      {
+        "name": "Hyde Park",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "Westminster and Big Ben walk",
+        "minutes": 60,
+        "setting": "outdoor"
+      },
+      {
+        "name": "British Museum",
+        "minutes": 120,
+        "setting": "indoor"
+      },
+      {
+        "name": "Paddington Basin canal walk",
+        "minutes": 30,
+        "setting": "outdoor"
+      }
+    ],
+    "airportIdeas": [
+      {
+        "name": "Runway views from Terminal 5",
+        "minutes": 20,
+        "setting": "indoor"
+      },
+      {
+        "name": "Sit-down meal in Terminal 2",
+        "minutes": 45,
+        "setting": "indoor"
+      },
+      {
+        "name": "Window shopping in Terminal 5",
+        "minutes": 30,
+        "setting": "indoor"
+      }
+    ]
+  }
+]
