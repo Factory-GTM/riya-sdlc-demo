@@ -7,6 +7,7 @@ Pick a layover airport, enter your arrival time (local time at that airport) and
 - **Verdict:** "Yes, go explore", "Tight, stay close", or "Stay in the airport", with the time math shown.
 - **Weather during the layover:** hourly temperature, rain chance and conditions from [Open-Meteo](https://open-meteo.com/) (free, no API key). Dates more than 16 days out show "Forecast not available yet".
 - **Ideas:** up to 3 things to do in the city or the airport, indoor first when rain is likely.
+- **Copy link:** the page URL keeps your inputs, so a copied link reopens the same layover and verdict for someone else.
 
 Airport times and ideas are rough public estimates in `src/data/airports.json`. There is no backend and no API key.
 
