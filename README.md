@@ -8,6 +8,8 @@ Pick a layover airport, enter your arrival time (local time at that airport) and
 - **Weather during the layover:** hourly temperature, rain chance and conditions from [Open-Meteo](https://open-meteo.com/) (free, no API key). Dates more than 16 days out show "Forecast not available yet".
 - **Ideas:** up to 3 things to do in the city or the airport, indoor first when rain is likely.
 
+After a check, the page address holds your inputs (for example `?airport=ORD&arrival=2026-11-13T12%3A00&hours=5&minutes=0&international=0`). Use **Copy link** to share it: opening the link fills in the form and shows the same result. A link with missing or bad values opens the normal empty form.
+
 Airport times and ideas are rough public estimates in `src/data/airports.json`. There is no backend and no API key.
 
 ## How the verdict works

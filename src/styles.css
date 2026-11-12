@@ -113,6 +113,13 @@ small,
   font-weight: normal;
 }
 
+.share {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .verdict-yes {
   border-left: 6px solid var(--green);
 }
