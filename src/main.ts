@@ -1,5 +1,6 @@
 import airportData from './data/airports.json';
 import { formatMinutes, pickIdeas, usableTime, verdictFor, VERDICT_LABELS, type Airport, type Idea } from './layover.ts';
+import { parseQueryString, toQueryString, type LayoverInputs } from './share-link.ts';
 import { addMinutes, fetchLayoverWeather, type LayoverWeather } from './weather.ts';
 import './styles.css';
 
@@ -8,8 +9,13 @@ const airports = airportData as Airport[];
 const form = document.querySelector<HTMLFormElement>('#layover-form')!;
 const airportSelect = document.querySelector<HTMLSelectElement>('#airport')!;
 const arrivalInput = document.querySelector<HTMLInputElement>('#arrival')!;
+const hoursInput = form.querySelector<HTMLInputElement>('input[name="hours"]')!;
+const minutesInput = form.querySelector<HTMLInputElement>('input[name="minutes"]')!;
+const internationalInput = form.querySelector<HTMLInputElement>('input[name="international"]')!;
 const timezoneHint = document.querySelector<HTMLElement>('#timezone-hint')!;
 const result = document.querySelector<HTMLElement>('#result')!;
+
+const COPIED_MESSAGE_MS = 2000;
 
 let latestRequest = 0;
 
@@ -87,14 +93,54 @@ function renderIdeas(ideas: Idea[], rainy: boolean): HTMLElement {
   return section;
 }
 
+function renderCopyLink(): HTMLElement {
+  const row = el('div', undefined, 'share');
+  const button = el('button', 'Copy link');
+  button.type = 'button';
+  const status = el('span', undefined, 'note');
+  status.setAttribute('role', 'status');
+  let clearTimer: number | undefined;
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      status.textContent = 'Copied';
+    } catch {
+      status.textContent = 'Copy failed. Copy the address bar instead.';
+    }
+    window.clearTimeout(clearTimer);
+    clearTimer = window.setTimeout(() => (status.textContent = ''), COPIED_MESSAGE_MS);
+  });
+  row.append(button, status);
+  return row;
+}
+
+function readInputs(): LayoverInputs {
+  const data = new FormData(form);
+  return {
+    airport: selectedAirport().code,
+    arrival: String(data.get('arrival')),
+    hours: Number(data.get('hours')),
+    minutes: Number(data.get('minutes')),
+    international: data.get('international') === 'on',
+  };
+}
+
+function fillForm(inputs: LayoverInputs) {
+  airportSelect.value = inputs.airport;
+  arrivalInput.value = inputs.arrival;
+  hoursInput.value = String(inputs.hours);
+  minutesInput.value = String(inputs.minutes);
+  internationalInput.checked = inputs.international;
+}
+
 async function showResult(event: SubmitEvent) {
   event.preventDefault();
   const request = ++latestRequest;
-  const data = new FormData(form);
+  const inputs = readInputs();
+  history.replaceState(null, '', `${location.pathname}?${toQueryString(inputs)}`);
   const airport = selectedAirport();
-  const arrival = String(data.get('arrival'));
-  const layoverMinutes = Number(data.get('hours')) * 60 + Number(data.get('minutes'));
-  const international = data.get('international') === 'on';
+  const { arrival, international } = inputs;
+  const layoverMinutes = inputs.hours * 60 + inputs.minutes;
   const verdict = verdictFor(usableTime(airport, layoverMinutes, international).usable);
 
   const card = el('article', undefined, `card verdict-${verdict}`);
@@ -103,6 +149,7 @@ async function showResult(event: SubmitEvent) {
     el('p', `${airport.code}, ${airport.city}: arrive ${arrival.replace('T', ' ')}, leave ${addMinutes(arrival, layoverMinutes).replace('T', ' ')} (local time)`, 'note'),
     renderMath(airport, layoverMinutes, international),
     el('p', 'Airport times are rough estimates.', 'note'),
+    renderCopyLink(),
   );
   const loading = el('p', 'Loading forecast...', 'note');
   card.append(loading);
@@ -130,6 +177,9 @@ for (const airport of airports) {
   airportSelect.append(new Option(`${airport.code} - ${airport.name}`, airport.code));
 }
 arrivalInput.value = tomorrowAtNoon();
+const sharedInputs = parseQueryString(location.search, airports.map((airport) => airport.code));
+if (sharedInputs) fillForm(sharedInputs);
 updateTimezoneHint();
 airportSelect.addEventListener('change', updateTimezoneHint);
 form.addEventListener('submit', showResult);
+if (sharedInputs) form.requestSubmit();

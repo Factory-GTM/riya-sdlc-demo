@@ -9,6 +9,7 @@ Layover Explorer: a one-page static site (Vite + TypeScript, vanilla DOM, plain 
 | `index.html` | The single page: form and result container. |
 | `src/layover.ts` | Pure logic: usable time, verdict, idea selection, minute formatting. No DOM, no network. |
 | `src/weather.ts` | Open-Meteo client: forecast URL, hourly parsing, forecast-range check. `fetch` and "now" are injectable for tests. |
+| `src/share-link.ts` | Shareable link: writes the form inputs to a query string and reads them back, returning null for missing or bad values. No DOM. |
 | `src/main.ts` | UI wiring: reads the form, renders the result card. Keep logic out of here. |
 | `src/styles.css` | All styles. |
 | `src/data/airports.json` | Airport data: coordinates, IANA time zone, transit/security/customs minutes, city and airport ideas. |
