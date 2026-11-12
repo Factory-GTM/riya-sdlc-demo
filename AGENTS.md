@@ -9,6 +9,7 @@ Layover Explorer: a one-page static site (Vite + TypeScript, vanilla DOM, plain 
 | `index.html` | The single page: form and result container. |
 | `src/layover.ts` | Pure logic: usable time, verdict, idea selection, minute formatting. No DOM, no network. |
 | `src/weather.ts` | Open-Meteo client: forecast URL, hourly parsing, forecast-range check. `fetch` and "now" are injectable for tests. |
+| `src/share-link.ts` | Shareable link: inputs to and from the query string (invalid values give `null`), share URL, clipboard copy that never throws. No DOM. |
 | `src/main.ts` | UI wiring: reads the form, renders the result card. Keep logic out of here. |
 | `src/styles.css` | All styles. |
 | `src/data/airports.json` | Airport data: coordinates, IANA time zone, transit/security/customs minutes, city and airport ideas. |
@@ -39,6 +40,7 @@ Run lint, typecheck, test and build before opening a PR. CI runs the same steps.
   - Yes at 120+ usable minutes, Tight at 45-119, otherwise Stay.
   - Up to 3 ideas: `cityIdeas` for Yes and Tight (quickest first for Tight), `airportIdeas` for Stay. Indoor ideas first when the rain chance is 50% or more.
   - Weather beyond 16 days shows "Forecast not available yet"; a failed request shows "Weather unavailable". The verdict always shows.
+  - After a check, the URL query holds the inputs (`airport`, `arrival`, `hours`, `minutes`, `international`). Opening such a URL fills the form and shows the result; any missing or bad value falls back to the normal empty form.
 - Tests never hit the network. Use the fixture and pass a fake `fetchFn` and `now` to `fetchLayoverWeather`.
 - Airport data: times are rough public estimates and the UI labels them as estimates. Ideas are generic public places (landmarks, neighborhoods, airport art or museums), never business endorsements. When adding an airport, fill every field and give it at least 3 city ideas and 1 airport idea; the data test checks this.
 - Naming: `camelCase` variables and functions, `PascalCase` types, `UPPER_CASE` module constants, `kebab-case.ts` files.
