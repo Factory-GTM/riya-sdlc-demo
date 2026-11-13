@@ -12,4 +12,8 @@ export default tseslint.config(
       complexity: ['error', 15],
     },
   },
+  {
+    files: ['scripts/**'],
+    languageOptions: { globals: globals.node },
+  },
 );

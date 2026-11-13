@@ -14,7 +14,8 @@ Layover Explorer: a one-page static site (Vite + TypeScript, vanilla DOM, plain 
 | `src/data/airports.json` | Airport data: coordinates, IANA time zone, transit/security/customs minutes, city and airport ideas. |
 | `src/fixtures/open-meteo-ord.json` | A recorded Open-Meteo response for tests. |
 | `src/*.test.ts` | Vitest unit tests, next to the code they test. |
-| `.github/workflows/ci.yml` | CI: install, lint, typecheck, test, build. |
+| `scripts/tech-debt.mjs` | Tech debt tracker: lists TODO/FIXME/HACK/XXX comments and fails on any without an issue reference. |
+| `.github/workflows/ci.yml` | CI: install, lint, tech debt check, typecheck, test, build. |
 
 ## Commands
 
@@ -24,13 +25,14 @@ Node 24, pnpm (version pinned by `packageManager` in `package.json`).
 pnpm install --frozen-lockfile
 pnpm dev         # local dev server
 pnpm lint        # ESLint (includes a complexity limit of 15)
+pnpm debt        # list tech debt markers; fails if one has no issue reference
 pnpm typecheck   # tsc --noEmit
 pnpm test        # Vitest, no network
 pnpm build       # typecheck + vite build to dist/
 pnpm preview     # serve dist/
 ```
 
-Run lint, typecheck, test and build before opening a PR. CI runs the same steps.
+Run lint, debt, typecheck, test and build before opening a PR. CI runs the same steps.
 
 ## Conventions
 
@@ -41,6 +43,7 @@ Run lint, typecheck, test and build before opening a PR. CI runs the same steps.
   - Weather beyond 16 days shows "Forecast not available yet"; a failed request shows "Weather unavailable". The verdict always shows.
 - Tests never hit the network. Use the fixture and pass a fake `fetchFn` and `now` to `fetchLayoverWeather`.
 - Airport data: times are rough public estimates and the UI labels them as estimates. Ideas are generic public places (landmarks, neighborhoods, airport art or museums), never business endorsements. When adding an airport, fill every field and give it at least 3 city ideas and 1 airport idea; the data test checks this.
+- Tech debt: start a comment with `TODO`, `FIXME`, `HACK` or `XXX` only when it links to an issue, as `TODO(#123): ...` (GitHub issue) or `TODO(ABC-123): ...` (tracker key). Open the issue first. `pnpm debt` lists every marker and CI fails on any without a reference. Remove the comment when the issue is closed.
 - Naming: `camelCase` variables and functions, `PascalCase` types, `UPPER_CASE` module constants, `kebab-case.ts` files.
 - No framework, no backend, no API keys, no new runtime dependencies without a reason.
 - Work on a branch and open a PR to `main`; do not push to `main` directly.

@@ -36,12 +36,13 @@ Other commands:
 ```sh
 pnpm test       # Vitest unit tests (no network)
 pnpm lint       # ESLint
+pnpm debt       # list TODO/FIXME markers; each must link to an issue, e.g. TODO(#123)
 pnpm typecheck  # tsc --noEmit
 pnpm build      # static site in dist/
 pnpm preview    # serve dist/ locally
 ```
 
-CI (GitHub Actions) runs install, lint, typecheck, test and build on every pull request.
+CI (GitHub Actions) runs install, lint, the tech debt check, typecheck, test and build on every pull request.
 
 ## Hosting
 
